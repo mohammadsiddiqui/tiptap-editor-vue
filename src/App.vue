@@ -100,11 +100,18 @@ const a = "TipTap with Ghost like look and feel - WYSIWYG (Minimal)";
   box-sizing: border-box;
 }
 
+body {
+  background: #ebf1f5;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fff;
 }
 
 .popover {
@@ -160,7 +167,7 @@ h1 {
   background: rgba(0, 0, 0, 0.7);
   color: white;
   height: 50px;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
