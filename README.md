@@ -1,6 +1,6 @@
 # Tiptap Editor with Vue
 
-TipTap with Ghost like look and feel - WYSIWYG (Minimal)
+TipTap with Ghost like look and feel - WYSIWYG (Minimal) - WIP
 
 ## How to use
 
