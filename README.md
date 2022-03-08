@@ -1,4 +1,4 @@
-# Tiptap Editor with Vue
+# Tiptap Editor with Vue (WIP)
 
 TipTap with Ghost like look and feel - WYSIWYG (Minimal) - WIP
 
