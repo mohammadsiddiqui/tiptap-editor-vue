@@ -2,16 +2,8 @@
   <h1>{{ a }}</h1>
   <editor-content :editor="editor" v-model="state.text" />
 
-  <bubble-menu
-    :editor="editor"
-    :tippy-options="{ duration: 100 }"
-    v-if="editor"
-    class="popover"
-  >
-    <button
-      @click="editor.chain().focus().toggleBold().run()"
-      :class="getClass('bold')"
-    >
+  <bubble-menu :editor="editor" :tippy-options="{ duration: 100 }" v-if="editor" class="popover">
+    <button @click="editor.chain().focus().toggleBold().run()" :class="getClass('bold')">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -29,10 +21,7 @@
         ></path>
       </svg>
     </button>
-    <button
-      @click="editor.chain().focus().toggleItalic().run()"
-      :class="getClass('italic')"
-    >
+    <button @click="editor.chain().focus().toggleItalic().run()" :class="getClass('italic')">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -44,16 +33,10 @@
         preserveAspectRatio="xMidYMid meet"
         viewBox="0 0 20 20"
       >
-        <path
-          fill="currentColor"
-          d="M10 4v3h2.21l-3.42 8H6v3h8v-3h-2.21l3.42-8H18V4h-8z"
-        ></path>
+        <path fill="currentColor" d="M10 4v3h2.21l-3.42 8H6v3h8v-3h-2.21l3.42-8H18V4h-8z"></path>
       </svg>
     </button>
-    <button
-      @click="editor.chain().focus().toggleStrike().run()"
-      :class="getClass('strike')"
-    >
+    <button @click="editor.chain().focus().toggleStrike().run()" :class="getClass('strike')">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -72,15 +55,20 @@
       </svg>
     </button>
   </bubble-menu>
+
+  <floating-menu :editor="editor" :tippy-options="{ duration: 100 }" v-if="editor">
+    <FloatBtnVue />
+  </floating-menu>
 </template>
 
 <script setup>
+import FloatBtnVue from "./FloatBtn.vue";
 import { reactive } from "vue";
-import { useEditor, EditorContent, BubbleMenu } from "@tiptap/vue-3";
+import { useEditor, EditorContent, BubbleMenu, FloatingMenu } from "@tiptap/vue-3";
 import StarterKit from "@tiptap/starter-kit";
 
 const editor = useEditor({
-  content: "<p>I’m running Tiptap with Vue 3 🎉</p>",
+  content: "<p>I’m running Tiptap with Vue 3 🎉</p><p>This is a test and fun</p><p></p>",
   extensions: [StarterKit],
 });
 
@@ -100,12 +88,14 @@ const a = "TipTap with Ghost like look and feel - WYSIWYG (Minimal)";
   box-sizing: border-box;
 }
 
+html,
 body {
   background: #ebf1f5;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
+    sans-serif;
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
@@ -185,6 +175,15 @@ pre {
 }
 
 p {
-  margin: 1em 0;
+  margin: 0.75em 0;
+}
+
+ul,
+ol {
+  margin-left: 2rem;
+}
+
+li p {
+  margin: 0;
 }
 </style>
